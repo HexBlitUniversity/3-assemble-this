@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7whnin11cbh5"]
+
+[ext_resource type="PackedScene" uid="uid://jefvfi051u32" path="res://paddle.tscn" id="1_3u1we"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ycxw"]
+size = Vector2(20, 649)
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(551, 385)
+current = true
+
+[node name="Paddle" parent="." instance=ExtResource("1_3u1we")]
+position = Vector2(571, 740)
+
+[node name="Area2D" type="Area2D" parent="." groups=["wall"]]
+position = Vector2(88, 222)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-86, 217)
+shape = SubResource("RectangleShape2D_3ycxw")
+
+[node name="Area2D2" type="Area2D" parent="." groups=["wall"]]
+position = Vector2(1044, 353)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(48, 85)
+shape = SubResource("RectangleShape2D_3ycxw")
