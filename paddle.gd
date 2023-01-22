@@ -1,32 +1,36 @@
 extends CharacterBody2D
 
+const SPEED = 300.0
 
-const SPEED = 30000.0
-
-var direction = Vector2.ZERO
-
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_left"):
-		direction.x = -1
-	if event.is_action_pressed("ui_right"):
-		direction.x = 1
-		
-	if event.is_action_released("ui_left") or event.is_action_released("ui_right"):
-		direction.x = 0
-		
+var _ball_dir
 
 func _physics_process(delta):
-	velocity = direction * SPEED * delta 
-	print(position)
-	print($Sprite2D.get_rect())
-	print($Sprite2D.get_rect().size)
-	print($Sprite2D.get_rect().end)
-	print($Sprite2D.get_rect().position)
+
+ 
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if position.x < 75:
 		position.x = 75
 	elif position.x > 1025:
 		position.x = 1025
+		
+		
 	move_and_slide()
 
  
+
+
+func _on_area_2d_area_entered(area):
+	print(area.name)
+	if area.is_in_group("ball"):
+		var ball = area.get_parent()
+		#ball.velocity = ball.velocity.bounce(ball.velocity.normalized())
+		ball.random_direction_y()
+		#var ball = get_tree().root.get_node("ball")
+		#print(ball)
+		#ball.velocity.bounce(ball.velocity.normalized())
+		

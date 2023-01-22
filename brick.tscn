@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://34j0raq376x7"]
+
+[ext_resource type="Script" path="res://brick.gd" id="1_3p6bk"]
+[ext_resource type="Texture2D" uid="uid://b6rp1s1f63req" path="res://puzzle-pack-ii/PNG/Tiles blue/tileBlue_26.png" id="1_b75mc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slmcl"]
+size = Vector2(72, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wpla"]
+size = Vector2(72, 28)
+
+[node name="brick" type="StaticBody2D" groups=["brick"]]
+script = ExtResource("1_3p6bk")
+
+[node name="blue_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_b75mc")
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="Area2D" type="Area2D" parent="." groups=["bounce", "brick"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_slmcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_3wpla")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm0lbncstfbhe"]
+
+[ext_resource type="Texture2D" uid="uid://ch34g8i5hey5d" path="res://puzzle-pack-ii/PNG/Balls/Grey/ballGrey_01.png" id="1_ql851"]
+[ext_resource type="Script" path="res://ball.gd" id="1_uy3u8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lp1gn"]
+radius = 16.7631
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnu1n"]
+radius = 19.0
+
+[node name="ball" type="CharacterBody2D"]
+script = ExtResource("1_uy3u8")
+
+[node name="ball" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ql851")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_lp1gn")
+
+[node name="Area2D" type="Area2D" parent="." groups=["ball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mnu1n")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
