@@ -1,15 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7whnin11cbh5"]
+[gd_scene load_steps=8 format=3 uid="uid://b7whnin11cbh5"]
 
 [ext_resource type="PackedScene" uid="uid://jefvfi051u32" path="res://paddle.tscn" id="1_3u1we"]
 [ext_resource type="Script" path="res://game.gd" id="1_37k4q"]
 [ext_resource type="PackedScene" uid="uid://34j0raq376x7" path="res://brick.tscn" id="2_gkhcu"]
 [ext_resource type="PackedScene" uid="uid://cm0lbncstfbhe" path="res://ball.tscn" id="3_kvjms"]
+[ext_resource type="Texture2D" uid="uid://cisgnlfi1khd5" path="res://puzzle-pack-ii/PNG/Back tiles/BackTile_04.png" id="5_50ftv"]
+[ext_resource type="FontFile" uid="uid://cl6hbyacnwrxt" path="res://Grisly Beast.otf" id="6_23etv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ycxw"]
-size = Vector2(31.2502, 1077)
+size = Vector2(31.2502, 1049.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_37k4q")
+
+[node name="levels" type="Node2D" parent="."]
+
+[node name="brick" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(393, 330)
+
+[node name="brick3" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(542, 330)
+
+[node name="brick2" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(468, 330)
+
+[node name="brick4" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(616, 330)
 
 [node name="TopWall" type="Area2D" parent="." groups=["bounce", "wall"]]
 position = Vector2(215, 0)
@@ -48,11 +64,8 @@ collision_mask = 3
 position = Vector2(47, 26)
 shape = SubResource("RectangleShape2D_3ycxw")
 
-[node name="brick" parent="." instance=ExtResource("2_gkhcu")]
-position = Vector2(293, 357)
-
 [node name="ball" parent="." instance=ExtResource("3_kvjms")]
-position = Vector2(415, 581)
+position = Vector2(567, 595)
 
 [node name="DeathWall" type="Area2D" parent="." groups=["death", "wall"]]
 position = Vector2(361, 177)
@@ -61,5 +74,250 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathWall"]
-position = Vector2(603, -200)
+position = Vector2(619.999, -186.252)
 shape = SubResource("RectangleShape2D_3ycxw")
+
+[node name="BackTile04" type="Sprite2D" parent="."]
+position = Vector2(1216, 386)
+scale = Vector2(1, 2.85507)
+texture = ExtResource("5_50ftv")
+
+[node name="BackTile05" type="Sprite2D" parent="."]
+position = Vector2(-119, 394)
+scale = Vector2(1, 2.98551)
+texture = ExtResource("5_50ftv")
+
+[node name="BackTile06" type="Sprite2D" parent="."]
+position = Vector2(551, -160)
+scale = Vector2(4.47826, 1.22826)
+texture = ExtResource("5_50ftv")
+
+[node name="brick5" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(692, 330)
+
+[node name="brick6" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(766, 330)
+
+[node name="brick7" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(841, 330)
+
+[node name="brick8" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(318, 329)
+
+[node name="brick9" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(917, 308)
+
+[node name="brick10" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(243, 328)
+
+[node name="brick11" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(169, 327)
+
+[node name="brick12" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(131, 367)
+
+[node name="brick13" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(206, 368)
+
+[node name="brick14" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(281, 368)
+
+[node name="brick15" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(356, 371)
+
+[node name="brick16" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(432, 369)
+
+[node name="brick17" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(507, 369)
+
+[node name="brick18" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(584, 369)
+
+[node name="brick19" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(659, 369)
+
+[node name="brick20" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(734, 369)
+
+[node name="brick21" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(809, 370)
+
+[node name="brick22" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(884, 371)
+
+[node name="brick23" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(100, 407)
+
+[node name="brick24" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(176, 408)
+
+[node name="brick25" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(251, 410)
+
+[node name="brick26" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(326, 411)
+
+[node name="brick27" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(400, 413)
+
+[node name="brick28" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(475, 410)
+
+[node name="brick29" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(549, 410)
+
+[node name="brick30" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(625, 412)
+
+[node name="brick31" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(705, 411)
+
+[node name="brick32" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(784, 413)
+
+[node name="brick33" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(862, 414)
+
+[node name="brick34" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(139, 448)
+
+[node name="brick35" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(215, 448)
+
+[node name="brick36" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(291, 451)
+
+[node name="brick37" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(367, 453)
+
+[node name="brick38" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(444, 454)
+
+[node name="brick39" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(520, 453)
+
+[node name="brick40" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(597, 453)
+
+[node name="brick41" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(676, 454)
+
+[node name="brick42" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(750, 454)
+
+[node name="brick43" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(825, 454)
+
+[node name="brick44" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(899, 454)
+
+[node name="brick45" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(862, 495)
+
+[node name="brick46" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(786, 494)
+
+[node name="brick47" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(712, 494)
+
+[node name="brick48" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(633, 495)
+
+[node name="brick49" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(555, 495)
+
+[node name="brick50" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(479, 494)
+
+[node name="brick51" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(403, 495)
+
+[node name="brick52" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(326, 494)
+
+[node name="brick53" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(250, 494)
+
+[node name="brick54" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(176, 494)
+
+[node name="brick55" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(213, 535)
+
+[node name="brick56" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(289, 534)
+
+[node name="brick57" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(367, 536)
+
+[node name="brick58" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(445, 536)
+
+[node name="brick59" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(522, 536)
+
+[node name="brick60" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(601, 535)
+
+[node name="brick61" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(680, 534)
+
+[node name="brick62" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(759, 534)
+
+[node name="brick63" parent="." instance=ExtResource("2_gkhcu")]
+position = Vector2(837, 534)
+
+[node name="Score" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 148.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("6_23etv")
+theme_override_font_sizes/font_size = 32
+text = "Score:"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 1127.0
+offset_bottom = 801.0
+
+[node name="game over" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -16.5
+offset_right = 104.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_23etv")
+theme_override_font_sizes/font_size = 32
+text = "GAME OVER!"
+
+[node name="score_end" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = 182.5
+offset_right = 28.0
+offset_bottom = 208.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_23etv")
+theme_override_font_sizes/font_size = 24
+text = "SCORE:"
+
+[connection signal="area_entered" from="TopWall" to="." method="_on_top_wall_area_entered"]
+[connection signal="area_entered" from="LeftWall" to="." method="_on_left_wall_area_entered"]
+[connection signal="area_entered" from="RightWall" to="." method="_on_right_wall_area_entered"]
+[connection signal="area_entered" from="DeathWall" to="." method="_on_death_wall_area_entered"]

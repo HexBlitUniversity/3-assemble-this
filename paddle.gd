@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-
+var dead = false
 var _ball_dir
 
 func _physics_process(delta):
 
+	if dead:
+		return
  
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -25,11 +27,13 @@ func _physics_process(delta):
 
 
 func _on_area_2d_area_entered(area):
-	print(area.name)
-	if area.is_in_group("ball"):
+	if area.is_in_group("ball"):		
 		var ball = area.get_parent()
+		ball.velocity.y *= -1
+		#ball.velocity.x *= -1
+		#ball.random_direction_y()
 		#ball.velocity = ball.velocity.bounce(ball.velocity.normalized())
-		ball.random_direction_y()
+		#ball.velocity.y *= -1
 		#var ball = get_tree().root.get_node("ball")
 		#print(ball)
 		#ball.velocity.bounce(ball.velocity.normalized())

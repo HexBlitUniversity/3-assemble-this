@@ -13,6 +13,7 @@ config_version=5
 config/name="3 - Assemble This"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [display]
@@ -31,3 +32,7 @@ export/convert_text_resources_to_binary=true
 2d_render/layer_2="player"
 2d_render/layer_3="bricks"
 2d_render/layer_4="ball"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

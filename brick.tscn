@@ -1,29 +1,95 @@
-[gd_scene load_steps=5 format=3 uid="uid://34j0raq376x7"]
+[gd_scene load_steps=15 format=3 uid="uid://34j0raq376x7"]
 
 [ext_resource type="Script" path="res://brick.gd" id="1_3p6bk"]
 [ext_resource type="Texture2D" uid="uid://b6rp1s1f63req" path="res://puzzle-pack-ii/PNG/Tiles blue/tileBlue_26.png" id="1_b75mc"]
+[ext_resource type="Texture2D" uid="uid://c85qgy8x82rv3" path="res://puzzle-pack-ii/PNG/Tiles orange/tileOrange_01.png" id="2_hedl2"]
+[ext_resource type="Texture2D" uid="uid://p2sro1s8joim" path="res://puzzle-pack-ii/PNG/Tiles red/tileRed_02.png" id="3_rvdhf"]
+[ext_resource type="Texture2D" uid="uid://bro4a2tm1rkjn" path="res://puzzle-pack-ii/PNG/Tiles grey/tileGrey_02.png" id="5_tljyl"]
+[ext_resource type="Texture2D" uid="uid://bj0rogsa878px" path="res://puzzle-pack-ii/PNG/Tiles green/tileGreen_02.png" id="6_8fgcl"]
+[ext_resource type="Texture2D" uid="uid://cfuu0b0al5ftq" path="res://puzzle-pack-ii/PNG/Tiles black/tileBlack_02.png" id="7_u4dxt"]
+[ext_resource type="Texture2D" uid="uid://c3rkeugu7e7eo" path="res://puzzle-pack-ii/PNG/Tiles pink/tilePink_02.png" id="8_gtpt3"]
+[ext_resource type="Texture2D" uid="uid://dt5usv0ee8hif" path="res://puzzle-pack-ii/PNG/Tiles yellow/tileYellow_02.png" id="9_efegi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slmcl"]
-size = Vector2(72, 36)
+size = Vector2(66, 6.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wpla"]
 size = Vector2(72, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb13x"]
+size = Vector2(65, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jita4"]
+size = Vector2(3, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxvlq"]
+size = Vector2(3, 30)
+
 [node name="brick" type="StaticBody2D" groups=["brick"]]
 script = ExtResource("1_3p6bk")
+
+[node name="orange_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_hedl2")
+
+[node name="red_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_rvdhf")
 
 [node name="blue_brick" type="Sprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_b75mc")
 region_rect = Rect2(32, 32, 32, 32)
 
-[node name="Area2D" type="Area2D" parent="." groups=["bounce", "brick"]]
+[node name="grey_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_tljyl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="green_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_8fgcl")
+
+[node name="black_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_u4dxt")
+
+[node name="pink_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_gtpt3")
+
+[node name="yellow_brick" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_efegi")
+
+[node name="bottom_brick" type="Area2D" parent="." groups=["bounce", "brick"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_brick"]
+position = Vector2(0, 14.625)
 shape = SubResource("RectangleShape2D_slmcl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_3wpla")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="top_brick" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_brick"]
+position = Vector2(-0.5, -16)
+shape = SubResource("RectangleShape2D_xb13x")
+
+[node name="left_brick" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_brick"]
+position = Vector2(-34.5, 0.5)
+shape = SubResource("RectangleShape2D_jita4")
+
+[node name="right_brick" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_brick"]
+position = Vector2(34.5, 0)
+shape = SubResource("RectangleShape2D_cxvlq")
+
+[connection signal="area_entered" from="bottom_brick" to="." method="_on_bottom_brick_area_entered"]
+[connection signal="area_entered" from="top_brick" to="." method="_on_top_brick_area_entered"]
+[connection signal="area_entered" from="left_brick" to="." method="_on_left_brick_area_entered"]
+[connection signal="area_entered" from="right_brick" to="." method="_on_right_brick_area_entered"]
